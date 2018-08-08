@@ -1,0 +1,29 @@
+%YAML 1.2
+---
+name: Lotus Formula
+scope: source.lotusformula
+
+contexts:
+  main:
+    - match: :=
+      scope: keyword.operator.assignment
+    - match: (\@\w+|REM)
+      scope: keyword.control
+    - match: \"[^\"]*\"
+      scope: string.quoted
+    - match: \{[^\}]*\}
+      scope: string.quoted
+    - match: \[[^\]]*\]
+      scope: variable.other.constant
+    - match: (=|!=|<|<=|>|>=)
+      scope: keyword.operator.logical
+    - match: (\&|\|)
+      scope: keyword.operator.bitwise
+    - match: (\+|-|\*|/)
+      scope: keyword.operator.logical
+    - match: ;$
+      scope: punctuation.terminator
+    - match: ;
+      scope: punctuation.separator
+    - match: ([\w]*)\s*:=
+      scope: variable.other.readwrite
